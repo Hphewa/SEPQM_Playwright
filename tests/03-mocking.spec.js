@@ -16,7 +16,7 @@ test('mock employee API response', async ({ page }) => {
   // Create a small demo page
   await page.setContent(`
     <button id="loadBtn">Load Employee</button>
-    <div id="result"></div>
+    <div id="result" style="margin-top:20px; font-size:24px; color:blue;"></div>
 
     <script>
       document.getElementById('loadBtn').addEventListener('click', async () => {
@@ -29,6 +29,9 @@ test('mock employee API response', async ({ page }) => {
 
   // Click the button
   await page.getByRole('button', { name: 'Load Employee' }).click();
+
+  // Keep browser open for a few seconds so output can be seen
+  await page.waitForTimeout(15000);
 
   // Verify result inside the div
   await expect(page.locator('#result')).toHaveText('John Silva - HR Assistant');
