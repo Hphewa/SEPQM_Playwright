@@ -22,61 +22,33 @@ export default defineConfig({
   /* Use one worker in CI for stability */
   workers: process.env.CI ? 1 : undefined,
 
-  /* Show terminal output + generate HTML report */
+  /* Show terminal output and generate HTML report */
   reporter: [
     ['list'],
     ['html', { open: 'never' }]
   ],
 
-  /* Shared settings for all browsers */
+  /* Shared settings for test execution */
   use: {
-    /* Show browser during execution */
+    /* Show browser while tests run */
     headless: false,
 
-    /* Capture screenshot only if a test fails */
+    /* Save screenshot only when a test fails */
     screenshot: 'only-on-failure',
 
-    /* Keep video only if a test fails */
+    /* Keep video only when a test fails */
     video: 'retain-on-failure',
 
     /* Collect trace on first retry */
     trace: 'on-first-retry',
   },
 
-  /* Browser projects */
+  /* Run tests only in Chromium for reporting demo */
   projects: [
     {
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
     },
-
-    {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
-    },
-
-    {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
-    },
-
-    // {
-    //   name: 'Mobile Chrome',
-    //   use: { ...devices['Pixel 5'] },
-    // },
-    // {
-    //   name: 'Mobile Safari',
-    //   use: { ...devices['iPhone 12'] },
-    // },
-
-    // {
-    //   name: 'Microsoft Edge',
-    //   use: { ...devices['Desktop Edge'], channel: 'msedge' },
-    // },
-    // {
-    //   name: 'Google Chrome',
-    //   use: { ...devices['Desktop Chrome'], channel: 'chrome' },
-    // },
   ],
 
   // webServer: {
