@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mini Task Manager</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>Mini Task Manager</h1>
+      <p class="subtitle">Simple local project for Playwright testing</p>
+
+      <form id="task-form" class="task-form">
+        <input
+          id="task-input"
+          data-testid="task-input"
+          type="text"
+          placeholder="Enter a task"
+        />
+        <button type="submit">Add Task</button>
+      </form>
+
+      <p id="message" data-testid="message" class="message" aria-live="polite"></p>
+
+      <p id="empty-state" data-testid="empty-state" hidden>No tasks found</p>
+
+      <ul id="tasks-list" class="task-list"></ul>
+    </main>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
