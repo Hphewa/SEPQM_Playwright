@@ -1,17 +1,17 @@
 import { test, expect } from '@playwright/test';
 
-/* Check whether forgot password page opens directly */
-test('Forgot password page loads successfully', async ({ page }) => {
-  await page.goto('https://opensource-demo.orangehrmlive.com/web/index.php/auth/requestPasswordResetCode', {
+/* Check whether the login page opens successfully */
+test('Login page loads successfully', async ({ page }) => {
+  await page.goto('https://automationexercise.com/login', {
     waitUntil: 'domcontentloaded'
   });
 
-  await expect(page).toHaveURL(/requestPasswordResetCode/);
+  await expect(page).toHaveURL(/login/);
 });
 
-/* Check whether forgot password page title is available */
-test('Forgot password page title is available', async ({ page }) => {
-  await page.goto('https://opensource-demo.orangehrmlive.com/web/index.php/auth/requestPasswordResetCode', {
+/* Check whether the login page title is available */
+test('Login page title is available', async ({ page }) => {
+  await page.goto('https://automationexercise.com/login', {
     waitUntil: 'domcontentloaded'
   });
 
@@ -19,9 +19,9 @@ test('Forgot password page title is available', async ({ page }) => {
   expect(title.length).toBeGreaterThan(0);
 });
 
-/* Check whether forgot password page uses HTTPS */
-test('Forgot password page uses HTTPS', async ({ page }) => {
-  await page.goto('https://opensource-demo.orangehrmlive.com/web/index.php/auth/requestPasswordResetCode', {
+/* Check whether the login page uses HTTPS */
+test('Login page uses HTTPS', async ({ page }) => {
+  await page.goto('https://automationexercise.com/login', {
     waitUntil: 'domcontentloaded'
   });
 

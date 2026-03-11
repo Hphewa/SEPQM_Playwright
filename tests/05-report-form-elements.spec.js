@@ -1,8 +1,8 @@
 import { test, expect } from '@playwright/test';
 
-/* Check whether the login page response is successful */
-test('Login page response is OK', async ({ page }) => {
-  const response = await page.goto('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login', {
+/* Check whether the home page response is successful */
+test('Home page response is OK', async ({ page }) => {
+  const response = await page.goto('https://automationexercise.com/', {
     waitUntil: 'domcontentloaded'
   });
 
@@ -10,20 +10,20 @@ test('Login page response is OK', async ({ page }) => {
   expect(response.ok()).toBeTruthy();
 });
 
-/* Check whether the login page uses HTTPS */
-test('Login page uses HTTPS', async ({ page }) => {
-  await page.goto('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login', {
+/* Check whether the home page uses HTTPS */
+test('Home page uses HTTPS', async ({ page }) => {
+  await page.goto('https://automationexercise.com/', {
     waitUntil: 'domcontentloaded'
   });
 
   expect(page.url().startsWith('https://')).toBeTruthy();
 });
 
-/* Check whether the login URL contains auth path */
-test('Login page URL contains auth path', async ({ page }) => {
-  await page.goto('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login', {
+/* Check whether the home page URL is correct */
+test('Home page URL is correct', async ({ page }) => {
+  await page.goto('https://automationexercise.com/', {
     waitUntil: 'domcontentloaded'
   });
 
-  expect(page.url()).toContain('/auth/login');
+  expect(page.url()).toBe('https://automationexercise.com/');
 });
