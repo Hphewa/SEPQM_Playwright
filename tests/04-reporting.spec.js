@@ -4,22 +4,22 @@ test('report demo - should show steps and attachment in HTML report', async ({
   page,
   taskPage
 }) => {
-  await test.info().attach('report-note', {
+  await test.info().attach('report-note', { // add extra evidence to the report
     body: Buffer.from(
       'This attachment is added only to demonstrate Playwright reporting.'
     ),
     contentType: 'text/plain'
   });
 
-  await test.step('Add a reporting task', async () => {
+  await test.step('Add a reporting task', async () => { // record task creation as a report step
     await taskPage.addTask('Reporting task');
   });
 
-  await test.step('Verify the new task appears', async () => {
+  await test.step('Verify the new task appears', async () => { // record visibility check in the report
     await expect(taskPage.item('Reporting task')).toBeVisible();
   });
 
-  await test.step('Verify page title', async () => {
+  await test.step('Verify page title', async () => { // record title validation in the report
     await expect(page).toHaveTitle('Mini Task Manager');
   });
 });
