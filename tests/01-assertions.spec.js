@@ -9,6 +9,7 @@ const { test, expect } = require('./fixtures/base.fixture');
 
   page.getByTestId(...)
  */
+
 test('should load the app with correct title', async ({ page }) => {
  
   //When you step this line, browser goes from about:blank to your app page.
@@ -32,6 +33,7 @@ test('should show default seeded tasks', async ({ page,taskPage }) => {
   await expect(taskPage.item('Write test cases')).toBeVisible(); //Checks that the task named Write test cases is visible on the page.
   
 });
+
 
 // 3. test case - It adds a new task and checks that it appears in the list.
 test('should add a new task', async ({ page,taskPage }) => {
