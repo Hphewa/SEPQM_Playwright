@@ -4,17 +4,20 @@ const { test: base, expect } = require('@playwright/test');
 function escapeRegExp(value) {
   return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
-
+//You are extending Playwright’s normal test and adding a new fixture called taskPage.
 const test = base.extend({
   taskPage: async ({ page, request }, use) => {
+    console.log('Fixture: resetting task data before test...');
     const resetResponse = await request.post('/api/reset'); //Reset app data before each test
 
     if (!resetResponse.ok()) {
       throw new Error('Could not reset tasks before test.');
     }
 
+    console.log('Fixture: reset successful.');   
+    console.log('Fixture: opening app...');
     await page.goto('/'); //Open the app page - / means - http://127.0.0.1:3000/
-
+    console.log('Fixture: app opened.'); 
     // Create the taskPage helper object
     const taskPage = {
       list: page.getByTestId('task-item'),
