@@ -1,3 +1,4 @@
+//This file proves that your fixture works correctly
 const { test, expect } = require('./fixtures/base.fixture');
 
 test('test 1 - should add a temporary task', async ({ taskPage }) => {

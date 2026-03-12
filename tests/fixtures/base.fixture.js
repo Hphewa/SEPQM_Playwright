@@ -3,7 +3,7 @@ const { test: base, expect } = require('@playwright/test');
 function escapeRegExp(value) {
   return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
-
+//You are extending Playwright’s normal test and adding a new fixture called taskPage.
 const test = base.extend({
   taskPage: async ({ page, request }, use) => {
     const resetResponse = await request.post('/api/reset');

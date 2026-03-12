@@ -1,3 +1,13 @@
+//This file runs once after all tests finish.
+//What it does:
+
+//Checks whether .server-pid file exists
+
+//Reads the saved process ID
+
+//Kills that server process
+
+//Deletes the .server-pid file
 const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
@@ -23,3 +33,4 @@ module.exports = async () => {
     fs.unlinkSync(PID_FILE);
   }
 };
+
