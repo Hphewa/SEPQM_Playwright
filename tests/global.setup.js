@@ -4,6 +4,17 @@ const { spawn } = require('child_process');//used to start another process, here
 
 const PID_FILE = path.join(process.cwd(), '.server-pid');//a file that stores the server process ID
 const SERVER_URL = 'http://127.0.0.1:3000'; //the address where your app will run
+// Finds the file src/server.js
+
+// Starts it using Node
+
+// Sets port as 3000
+
+// Runs it in background
+
+// Saves its process ID into .server-pid
+
+// Waits until server becomes available
 
 async function waitForServer(url, attempts = 30) { //This function checks whether the server is really ready.
   for (let i = 0; i < attempts; i += 1) {
@@ -23,6 +34,8 @@ async function waitForServer(url, attempts = 30) { //This function checks whethe
 }
 
 module.exports = async () => {
+
+  console.log('Global setup: starting server...'); 
   const serverScript = path.join(process.cwd(), 'src', 'server.js');
 
   const serverProcess = spawn(process.execPath, [serverScript], {
@@ -37,4 +50,5 @@ module.exports = async () => {
   fs.writeFileSync(PID_FILE, String(serverProcess.pid));
 
   await waitForServer(SERVER_URL);
+  console.log('Global setup: server is ready.');
 };

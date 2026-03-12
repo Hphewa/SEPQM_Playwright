@@ -14,3 +14,7 @@ test('test 2 - should reset data before the next test', async ({ taskPage }) => 
   await expect(taskPage.item('Write test cases')).toBeVisible();
   await expect(taskPage.list).toHaveCount(2);
 });
+
+test('test 3 - should fail because fixture reset removed temporary task', async ({ taskPage }) => {
+  await expect(taskPage.item('Temporary fixture task')).toBeVisible();
+});

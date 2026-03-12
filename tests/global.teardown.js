@@ -20,7 +20,7 @@ module.exports = async () => {
   }
 
   const pid = fs.readFileSync(PID_FILE, 'utf-8').trim();
-
+  console.log('Global teardown: stopping server...'); 
   try {
     if (process.platform === 'win32') {
       execSync(`taskkill /PID ${pid} /T /F`);
@@ -32,5 +32,5 @@ module.exports = async () => {
   } finally {
     fs.unlinkSync(PID_FILE);
   }
-};
+};//After tests are done, stop the server and clean temporary tracking file.
 
