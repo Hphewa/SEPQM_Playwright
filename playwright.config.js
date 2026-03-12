@@ -21,8 +21,10 @@ module.exports = defineConfig({
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
-    launchOptions:{
-      slowMo:800
-    }
+
+    launchOptions: {
+    slowMo: 2000
+  }
+
   }
 });
