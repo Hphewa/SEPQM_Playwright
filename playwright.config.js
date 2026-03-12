@@ -24,5 +24,6 @@ module.exports = defineConfig({
     launchOptions: {
     slowMo: 2000
   }
+
   }
 });
