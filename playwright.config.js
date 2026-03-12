@@ -22,7 +22,7 @@ module.exports = defineConfig({
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
     launchOptions: {
-      slowMo: 6000
+      slowMo: 2000
     }
   }
 });
