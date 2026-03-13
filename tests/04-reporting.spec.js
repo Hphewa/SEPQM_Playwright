@@ -4,7 +4,7 @@ test('report demo - should show steps and attachment in HTML report', async ({
   page,
   taskPage
 }) => {
-  //add an attachment as extra report evidence
+  
   await test.info().attach('report-note', { // add extra evidence to the report
     body: Buffer.from(
       'This attachment is added only to demonstrate Playwright reporting.'

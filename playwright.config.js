@@ -7,7 +7,7 @@ module.exports = defineConfig({
   retries: 1,
 
   reporter: [
-    //configured the list, HTML, and JUnit reporters
+    
     ['list'], // terminal report
     ['html', { open: 'never' }], // HTML report
     ['junit', { outputFile: 'test-results/results.xml' }] // XML report
@@ -19,7 +19,7 @@ module.exports = defineConfig({
   use: {
     baseURL: 'http://127.0.0.1:3000',
     headless: true,
-    //enabled trace, screenshot, and video so failures can be analyzed with extra evidence
+    
     trace: 'on-first-retry', // trace for debugging
     screenshot: 'only-on-failure', // screenshot on failure
     video: 'retain-on-failure', // video on failure
