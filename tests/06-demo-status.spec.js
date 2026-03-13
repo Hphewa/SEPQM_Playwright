@@ -3,12 +3,12 @@ const { test, expect } = require('./fixtures/base.fixture');
 test('demo flaky - should pass on retry', async ({ taskPage }) => {
   const retry = test.info().retry;
 
-  // fail on the first run to appear as flaky
+  // fail on the first run 
   if (retry === 0) {
     await expect(taskPage.list).toHaveCount(3);
   }
 
-  // pass on retry
+  // pass on retry to appear as flaky
   await expect(taskPage.list).toHaveCount(2);
 });
 
