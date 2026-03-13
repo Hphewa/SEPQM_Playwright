@@ -8,10 +8,5 @@
     "id": 2,
     "title": "Write test cases",
     "completed": true
-  },
-  {
-    "id": 3,
-    "title": "Reporting task",
-    "completed": false
   }
 ]
