@@ -4,6 +4,7 @@ test('report demo - should show steps and attachment in HTML report', async ({
   page,
   taskPage
 }) => {
+  //add an attachment as extra report evidence
   await test.info().attach('report-note', { // add extra evidence to the report
     body: Buffer.from(
       'This attachment is added only to demonstrate Playwright reporting.'
@@ -11,6 +12,7 @@ test('report demo - should show steps and attachment in HTML report', async ({
     contentType: 'text/plain'
   });
 
+  //to show detailed execution steps in the HTML report
   await test.step('Add a reporting task', async () => { // record task creation as a report step
     await taskPage.addTask('Reporting task');
   });
