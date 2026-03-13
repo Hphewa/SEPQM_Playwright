@@ -7,6 +7,7 @@ module.exports = defineConfig({
   retries: 1,
 
   reporter: [
+    
     ['list'], // terminal report
     ['html', { open: 'never' }], // HTML report
     ['junit', { outputFile: 'test-results/results.xml' }] // XML report
@@ -18,12 +19,12 @@ module.exports = defineConfig({
   use: {
     baseURL: 'http://127.0.0.1:3000',
     headless: true,
+    
     trace: 'on-first-retry', // trace for debugging
     screenshot: 'only-on-failure', // screenshot on failure
     video: 'retain-on-failure', // video on failure
     launchOptions: {
-    slowMo: 2000
-  }
-
+      slowMo: 2000 // slow browser actions for demo
+    }
   }
 });
