@@ -1,4 +1,5 @@
-const { defineConfig } = require('@playwright/test');
+const { defineConfig, devices } = require('@playwright/test');
+
 
 module.exports = defineConfig({
   testDir: './tests',
@@ -7,6 +8,7 @@ module.exports = defineConfig({
   retries: 1,
 
   reporter: [
+    
     ['list'], // terminal report
     ['html', { open: 'never' }], // HTML report
     ['junit', { outputFile: 'test-results/results.xml' }] // XML report
@@ -22,8 +24,26 @@ module.exports = defineConfig({
     screenshot: 'only-on-failure', // screenshot on failure
     video: 'retain-on-failure', // video on failure
     launchOptions: {
-    slowMo: 2000
+      slowMo: 2000 // slow browser actions
+    }
   }
 
-  }
+   /*
+  ,
+  projects: [
+    {
+      name: 'chromium',
+      use: { ...devices['Desktop Chrome'] }
+    },
+    {
+      name: 'firefox',
+      use: { ...devices['Desktop Firefox'] }
+    },
+    {
+      name: 'webkit',
+      use: { ...devices['Desktop Safari'] }
+    }
+  ]
+  */
+
 });

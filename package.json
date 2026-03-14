@@ -7,7 +7,16 @@
     "start": "node src/server.js",
     "test": "playwright test",
     "test:headed": "playwright test --headed",
-    "report": "playwright show-report"
+    "test:debug": "playwright test --debug",
+    "report": "playwright show-report",
+
+    "test:assertions": "playwright test tests/01-assertions.spec.js",
+    "test:assertions:headed": "playwright test tests/01-assertions.spec.js --headed",
+    "test:assertions:debug": "playwright test tests/01-assertions.spec.js --debug",
+
+    "test:fail:headed": "playwright test tests/05-demo-fail.spec.js --headed",
+    "test:fail:debug": "playwright test tests/05-demo-fail.spec.js --debug",
+    "codegen": "playwright codegen http://localhost:3000"
   },
   "dependencies": {
     "express": "^4.21.2"
