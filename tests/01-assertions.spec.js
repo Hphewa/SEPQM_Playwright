@@ -16,8 +16,9 @@ test('should load the app with correct title', async ({ page }) => {
   
 });
 
+
 // 2. test case - It checks that the task list contains exactly 2 items.
-test('should show default seeded tasks', async ({ page, taskPage }) => {
+test('should show default seeded tasks', async ({ taskPage }) => {
   
   await expect(taskPage.list).toHaveCount(2);
   
@@ -25,12 +26,11 @@ test('should show default seeded tasks', async ({ page, taskPage }) => {
   
   await expect(taskPage.item('Write test cases')).toBeVisible(); //Checks that the task named Write test cases is visible on the page.
   
-
 });
 
 
 // 3. test case - It adds a new task and checks that it appears in the list.
-test('should add a new task', async ({ page, taskPage }) => {
+test('should add a new task', async ({ taskPage }) => {
   
   await taskPage.addTask('Prepare SEPQM demo');
   
@@ -41,7 +41,7 @@ test('should add a new task', async ({ page, taskPage }) => {
 });
 
 // 4. test case - It marks a task as completed and checks that it is displayed as completed.
-test('should mark a task as completed', async ({ page, taskPage }) => {
+test('should mark a task as completed', async ({taskPage }) => {
   
   await taskPage.completeTask('Learn Playwright'); // Learn Playwright is marked as completed.
   
@@ -52,7 +52,7 @@ test('should mark a task as completed', async ({ page, taskPage }) => {
 });
 
 // 5. test case - It deletes a task and checks that it is removed from the list.
-test('should delete a task', async ({ page, taskPage }) => {
+test('should delete a task', async ({  taskPage }) => {
   
   await taskPage.deleteTask('Learn Playwright');
   
@@ -74,8 +74,8 @@ test('should validate empty task input', async ({ page, taskPage }) => {
 
 });
 
-// 7. test case
-test('demo fail - should incorrectly expect 3 seeded tasks', async ({ taskPage }) => {
+// 7. failing - test case
+test('Testing fail - should incorrectly expect 3 seeded tasks', async ({ taskPage }) => {
   await expect(taskPage.list).toHaveCount(3);
 
 });
