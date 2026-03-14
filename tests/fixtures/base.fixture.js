@@ -1,5 +1,5 @@
 const { test: base, expect } = require('@playwright/test');
-
+//A fixture is a ready-made resource or prepared environment used by tests.
 //it protects special characters so they are treated as normal text.
 function escapeRegExp(value) {
   return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -53,7 +53,7 @@ const test = base.extend({
       }
     };
 
-    await use(taskPage);
+    await use(taskPage); //passes the prepared fixture object to the test.
   }
 });
 
