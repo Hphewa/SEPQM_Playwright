@@ -1,7 +1,6 @@
 const fs = require('fs'); // used to read-write files
 const path = require('path'); //used to safely build file paths
 const { spawn } = require('child_process');//used to start another process, here the server
-
 const PID_FILE = path.join(process.cwd(), '.server-pid');//a file that stores the server process ID
 const SERVER_URL = 'http://127.0.0.1:3000'; //the address where your app will run
 // Finds the file src/server.js
